@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!--方法1： 不推荐，因为结构和行为耦合，不方便维护-->
+    <button id="btn1" onclick="alert('你好，我是1号按钮')">我是1号按钮</button>
+
+    <button id="btn2">我是2号按钮</button>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    //事件：就是用户和浏览器的交互行为
+    ///html  和js 的交互 都是 通过事件来实现的
+
+    ///方法2 推荐：因为结构和 行为分离，易于维护
+    //过去按钮对象
+    var theBtn2 = document.getElementById('btn2');
+
+    //给事件绑定 回调函数
+    theBtn2.onclick = function () {
+        alert("大家好，我是2号按钮");
+    }
+</script>

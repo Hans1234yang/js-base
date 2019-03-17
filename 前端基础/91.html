@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+    <button id="btn1">我是一个按钮</button>
+    
+</body>
+</html>
+<script type="text/javascript">
+
+    //dom是为了操作页面的
+
+
+    ///节点分为4种 文档节点,元素节点，属性节点，文本节点
+
+    //浏览器为我们提供了文档节点对象 是window下的document
+    //可以在页面中直接使用，文档节点代表的是整个页面
+
+    console.log(document);
+
+    //通过docuement获取 button对象
+    var theBtn = document.getElementById('btn1');
+
+    //修改buton元素节点的文字
+    theBtn.innerHTML = "我已经被修改了";
+
+</script>

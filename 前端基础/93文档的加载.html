@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript">
+        ///浏览器加载页面的时候，是自从而下加载的
+        //读到一行是一行，如果js写在html上面
+        //读取js代码时，页面还没有加载 ，页面没有加载，dom也没有加载。
+        //导致dom 无法获取
+
+        
+
+
+
+        //此时执行alert函数的话，页面还没有加载，所以看不到button按钮
+        //alert("hello world");
+
+
+
+        //方法1 ：把js写在 onload事件里
+
+        //onload事件会在整个html页面加载完成后，才被触发
+        //为window绑定一个onload事件
+               //该事件对应的响应函数 会在整个页面加载完成后 执行
+        //可以确定js代码执行的时候，html页面已经加载完毕了 
+        window.onload = function () {
+            alert("Hello C#，hello python");
+        };
+
+        
+    
+
+    </script>
+</head>
+<body>
+    <button id="btn1">1号按钮</button>
+    <button id="btn2">2号按钮</button>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+    //方法2 :把js写在 html页面之后
+
+
+    //获取id为btn2的按钮
+    var theBtn2 = document.getElementById('btn2');
+
+    //为btn绑定function1
+    theBtn2.onclick = function () {
+        alert("我是按钮2");
+    }
+
+
+    //如果写在上面，js是先加载。 然后会影响html页面的加载。性能不好
+    //不如把js写在页面下面。 js后加载，后执行 
+
+</script>
