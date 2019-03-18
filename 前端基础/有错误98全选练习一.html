@@ -1,0 +1,187 @@
+﻿
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form method="post" action="">
+        你爱好的运动是？ <input type="checkbox" id="checkedAllBoxOrNo" /> 全选/全不选
+
+        <br />
+        <br />
+
+        <input type="checkbox" name="items" value="足球" /> 足球
+        <input type="checkbox" name="items" value="篮球" />篮球
+        <input type="checkbox" name="items" value="羽毛球" />羽毛球
+        <input type="checkbox" name="items" value="乒乓球" />乒乓球
+
+        <br />
+        <input type="button" id="CheckAll" value="全选" />
+        <input type="button" id="CheckNo" value="全不选" />
+        <input type="button" id="CheckChange" value="反选" />
+
+        <input type="button" id="senBtn" value="提交" />
+
+
+    </form>
+</body>
+</html>
+
+<script type="text/javascript">
+    //1. 全选
+
+    //获取全选的button节点
+    var checkAllBtn = document.getElementById('CheckAll');
+
+    checkAllBtn.onclick = function () {
+
+
+        //获取四个多选框 items
+        var thItems = document.getElementsByName('items');
+
+        //遍历items
+        for (var i = 0; i < thItems.length; i++) {
+
+
+            ///通过多选框的checked属性，可以获取或者设置多选框的选中状态
+            thItems[i].checked = true;
+        }
+
+        //全选/全不选按钮 打上 对号
+
+        var allOrNo = document.getElementById('checkedAllBoxOrNo');
+
+        allOrNo.checked = true;
+    };
+
+
+
+    ///2. 全不选
+    var CheckNoBtn = document.getElementById('CheckNo');
+
+    CheckNoBtn.onclick = function () {
+        //获取4个items
+        var theItems = document.getElementsByName('items');
+
+        //遍历items
+        for (var i = 0; i < theItems.length; i++) {
+            theItems[i].checked = false;
+        }
+
+        var allOrNo = document.getElementById('checkedAllBoxOrNo');
+
+        allOrNo.checked = false;
+    };
+
+
+    ///3. 反选
+    // 点击之后，选中的变成没选中
+    //         没选中的变成选中
+
+    var checkChangeBtn = document.getElementById('CheckChange');
+
+    checkChangeBtn.onclick = function () {
+
+        //获取4个items
+        var theItems = document.getElementsByName('items');
+
+        //遍历items
+
+        for (var i = 0; i < theItems.length; i++) {
+
+            //判断状态
+
+
+
+            //方法1：
+            ////如果没选中的，反选选中
+            //if (theItems[i].checked == false) {
+            //    theItems[i].checked = true;
+            //}
+
+            /////选中的，反选没选
+            //else {
+            //    theItems[i].checked = false;
+            //}
+
+
+            //方法2：    更简洁的语法
+            theItems[i].checked = !theItems[i].checked;
+        }
+    }
+
+    ///4. 提交按钮
+    //    点击按钮后， 将所有函数的选中的value属性输出
+
+    var theSenBtn = document.getElementById('senBtn');
+
+    //给button绑定 function
+    theSenBtn.onclick = function () {
+
+
+        //获取4个items
+        var theItems = document.getElementsByName('items');
+
+        //遍历theItems
+        for (var i = 0; i < theItems.length; i++) {
+            //判断多选框是否选中
+            if (theItems[i].checked === true) {
+                console.log(theItems[i].value);
+            }
+        }
+    };
+
+
+    //5. 全选、全不选，多选框
+    //当他选中时， 其余的也选中， 当它取消的时候，其余的也取消
+
+    var theCheckedAllBoxOrNo = document.getElementById('checkedAllBoxOrNo');
+
+    theCheckedAllBoxOrNo.onclick = function () {
+
+        var theItems = document.getElementsByName('items');
+
+        //设置多选框的选择状态
+        for (var i = 0; i < theItems.length; i++) {
+            theItems[i].checked = theCheckedAllBoxOrNo.checked;
+        }
+    }
+
+
+    ///6. item\
+    //如果4个多选框 全都选中，那么 全选/全不选 应该为true
+    // 如果4个多选框  都不能中，那么 全选/全部选  应该为false
+
+    //为4个 多选框 绑定 funciton
+
+    //获取4个items
+    var itemsss = document.getElementsByName('items');
+
+    //获取 全选\全不选 节点
+    var allOrNo = document.getElementById('checkedAllBoxOrNo');
+
+  
+
+    for (var i = 0; i < itemsss.length; i++)
+    {
+        //给4个按钮，绑定事件处理函数
+
+      
+       
+
+        //随意一个多选框 点中，都会进来这里
+        itemsss[i].onclick = function ()
+        {
+              //每次触发，默认全选状态
+            allOrNo.checked = true;
+
+            for (var j = 0; j < itemsss.length; j++) {
+                if (!itemsss[j].checked) {
+                    ///如果有一个没选中，则取消 全选/全不选
+                    allOrNo.checked = false;
+                }
+            }          
+        }    
+    }
+</script>

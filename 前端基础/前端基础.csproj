@@ -50,15 +50,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="有错误98全选练习一.html" />
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
     <Content Include="img\4.jpg" />
-    <Content Include="91.html" />
-    <Content Include="92l.html" />
+    <Content Include="91dom简介.html" />
+    <Content Include="92事件.html" />
     <Content Include="93文档的加载.html" />
     <Content Include="94dom查询1.html" />
-    <Content Include="95图片.html" />
+    <Content Include="95图片切换.html" />
     <Content Include="img\5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
