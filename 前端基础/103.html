@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>名字</th>
+            <th>Email</th>
+            <th>薪资</th>
+            <th>&nbsp;</th>
+        </tr>
+
+        <tr>
+            <td>Tom</td>
+            <td>Tom@qq.com</td>
+            <td>5000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+
+        <tr>
+            <td>Jenny</td>
+            <td>Jenny@qq.com</td>
+            <td>8000</td>
+            <td><a href="http://www.baidu.com">Delete</a></td>
+        </tr>
+
+        <tr>
+            <td>Bob</td>
+            <td>Bob@qq.com</td>
+            <td>13000</td>
+            <td><a href="http://www.baidu.com">Delete</a></td>
+        </tr>
+    </table>
+
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+
+
+        <table>
+            <tr>
+                <td class="word">姓名:</td>
+                <td class="inp">
+                    <input type="text" name="theName" id="theName" />
+                </td>
+            </tr>
+
+            <tr>
+                <td class="word">Email</td>
+                <td class="inp">
+                    <input type="text" name="theEmail" id="theEmail" />
+                </td>
+            </tr>
+
+            <tr>
+                <td class="word">薪资</td>
+                <td class="inp">
+                    <input type="text" name="theSalary" id="theSalary"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="but1"value="abc">
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+
+    ///点击一个超级链接，删除一个员工的信息
+
+    //获取所有的超级链接
+
+    var allA = document.getElementsByTagName('a');
+
+   ///为每一个超级链接，都添加一个回调函数
+
+    for (var i = 0; i < allA.length;i++) {
+
+        allA[i].onclick = function () {
+
+            //点击超级链接，删除a超级链接的所在的行
+            //此时的this ，就是触发函数的a标签 ， 谁触发这个回调函数，谁就是this
+            ///获取当前的tr
+
+
+            //此时的tr 是 a标签的父亲的父亲
+            var tr = this.parentNode.parentNode;
+
+
+
+            ///删除之前出现一个弹出框
+            ///***
+            ///***confirm()方法用于弹出一个带有确认和取消按钮的提示框
+            ///***  需要第一个字符串作为参数，该字符串会作为提示文字显示出来
+            ///***  如果用户点击 确认会返回 true，点击取消，会返回false
+
+            var flag = confirm("确认取消");
+
+            //如果用户点击确定
+            if (flag) {
+                //删除这行tr
+                tr.parentNode.removeChild(tr);
+            }
+
+
+
+            ///*****点击超级链接后，超链接会跳转页面，这是超级链接的默认行为
+            ///**  此时我们不希望出现默认行为，可以在事件响应函数最后 + return false 来取消默认
+            return false;
+        };
+
+
+      
+    }
+
+</script>

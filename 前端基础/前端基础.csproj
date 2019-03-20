@@ -51,6 +51,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="101dom查询其他方法.html" />
+    <Content Include="102.html" />
+    <Content Include="103.html" />
     <Content Include="98全选练习一反选有点小bug.html" />
     <Content Include="img\1.jpg" />
     <Content Include="img\2.jpg" />
