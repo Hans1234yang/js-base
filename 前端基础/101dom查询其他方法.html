@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="box1" id="b1">
+        <div>我是box1里面的div</div>
+    </div>
+    
+    <div class="box1" id="b2">
+        <div>我是box1里面的div</div>
+    </div>
+    
+    <div class="box1" id="b3">
+        <div>我是box1里面的div</div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    //获取body标签 
+    //方法1：getElementsByTagName
+    var body1 = document.getElementsByTagName('body')[0];
+    //console.log(body1);
+    ///在document中有一个属性body ，它保存的是body的引用
+
+    //方法2:body
+    var body2 = document.body;
+    //console.log(body2);
+
+    //docmument.documentElement保存的是html根标签
+    var html1 = document.documentElement;
+    //console.log(html1);
+
+
+    //打印页面的所有元素 
+
+    //方法1： document.all 
+
+    var all1 = document.all;
+    //console.log(all1.length);
+
+    for (var j = 0; j < all1.length; j++)
+    {
+        //console.log(all1[j]);
+    }
+
+    //方法2：  ByTagName ('*')
+
+    var all2 = document.getElementsByTagName('*');
+    console.log(all2.length);
+
+    //根据元素的class属性，查询一组元素节点对象
+    // 方法1:getElementsByClassName()      可以根据calss属性 获取一组节点元素
+    ////// 但是不支持 IE8 以及一下的浏览器
+
+    var box1 = document.getElementsByClassName("box1");
+    console.log(box1);
+
+    //获取页面所有的div
+    var divs = document.getElementsByTagName('div');
+    console.log(divs);
+
+
+    //获取class为box1的所有div
+    //.box1 div
+
+    // 方法2： document.querySelector()
+    //*** 需要一个选择器 的字符串 作为参数，可以作为 css选择器 来查询一个元素节点 
+    ///IE8虽然 没有getElementByClassName,但是可以用 QueySeletor来代替
+    // 使用该方法 会返回唯一的一个元素 ，如果有多个元素，也是只会返回第一个
+
+    var div = document.querySelector(".box1 div");
+    console.log(div.innerHTML);
+
+    var box2 = document.querySelector(".box1");
+    console.log(box2);
+
+
+    ///document.querySelectorAll()
+    //  该方法和queryseletor()用法一样 ,不用的是，他把元素封装到一个数组
+    //   即使只有一个元素符合 条件，也会返回数组
+
+    var box3 = document.querySelectorAll(".box1");
+
+    var box4 = document.querySelectorAll("#box2");
+
+    console.log(box3);
+    console.log(box4);
+</script>

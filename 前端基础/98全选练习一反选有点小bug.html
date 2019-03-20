@@ -86,13 +86,14 @@
         //获取4个items
         var theItems = document.getElementsByName('items');
 
+
+        //获取 全选/全不选的dom元素:
+        var allOrNO = document.getElementById("checkedAllBoxOrNo");
         //遍历items
 
-        for (var i = 0; i < theItems.length; i++) {
-
+        for (var i = 0; i < theItems.length; i++)
+        {
             //判断状态
-
-
 
             //方法1：
             ////如果没选中的，反选选中
@@ -108,6 +109,22 @@
 
             //方法2：    更简洁的语法
             theItems[i].checked = !theItems[i].checked;
+        }
+
+        //经历了反选的东西
+
+        //在反选时，也需要 对 4个多选框 进行是否全选的判断
+        alert("Hello world");
+       
+        for (var j = 0; j < theItems.length; j++) {
+            alert("Hi" + j);
+            allOrNO.checked = true;
+             //默认全部打钩 全选/全不选
+
+            //一旦有一个没有打钩，那么就 否定全选/全不选
+            if (!itemsss[j]) {
+                allOrNO.checked = false;
+            }
         }
     }
 
