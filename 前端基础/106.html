@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table id="tableEmp">
+        <tr>
+            <th>名字</th>
+            <th>Email</th>
+            <th>薪资</th>
+            <th>&nbsp;</th>
+        </tr>
+
+        <tr>
+            <td>Tom</td>
+            <td>Tom@qq.com</td>
+            <td>5000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+
+        <tr>
+            <td>Jenny</td>
+            <td>Jenny@qq.com</td>
+            <td>8000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+
+        <tr>
+            <td>Bob</td>
+            <td>Bob@qq.com</td>
+            <td>13000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    ///获取所有的超级链接
+    var allA = document.getElementsByTagName('a');
+
+    ///为每个超级链接绑定一个单击响应函数
+     for (var i = 0; i < allA.length;i++) {
+
+         ///***
+         ///***for循环会在html页面加载完成之后，立即执行
+         ///*** 响应函数 会在超级链接 点击的时候，才执行
+         ///***  当响应函数执行的时候，for循环早已执行完毕
+         //***
+
+         alert("for循环正在执行" + i);
+
+        allA[i].onclick = function () {
+
+           
+
+            ////此时i等于3
+            //alert(i);
+
+            /////allA[i]不等于this
+            //console.log(allA[i] === this);
+
+            alert("响应函数正在执行" + i);
+        };     
+    }
+</script>
